@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>До Нового Года!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+<body>
+
+    <div id="confetti-container"></div>
+    
+    <div class="snow layer1"></div>
+    <div class="snow layer2"></div>
+    <div class="snow layer3"></div>
+    
+    <div id="music-player-container">
+        <iframe width="1" height="1" 
+            src="https://www.youtube.com/embed/videoseries?list=PLmkp13jy0max_pkey8evheDrtSWhyKdke&autoplay=1&enablejsapi=1" 
+            title="YouTube video player" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+        </iframe>
+    </div>
+    <div class="contimer">
+        
+        <div class="timeText">
+            <h1>До Нового Года</h1> </div>
+
+        <button id="music-toggle-btn">
+             <i class="fa fa-music" aria-hidden="true"></i> </button>
+        <div id="mode-selector" class="hidden"> 
+            <button id="btn-local">Ереван (Основной)</button>
+            <button class="inoactive" id="btn-global">Мировое время</button> 
+        </div>
+        
+        <div id="single-timer" class="timer-display">
+            <div id="timer"></div> 
+        </div>
+        
+        <div id="multi-timer" class="timer-display hidden">
+            </div>
+
+    </div>
+
+    <script src="main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+/* --- ОСНОВНЫЕ СТИЛИ СТРАНИЦЫ --- */
+body {
+    margin: 0;
+    padding: 0;
+    color: white;
+    text-align: center;
+    overflow: hidden; 
+
+    /* === ВАШИ СТИЛИ: ГРАДИЕНТНЫЙ ФОН И АНИМАЦИЯ === */
+    background: linear-gradient(-45deg, #87ceeb 0%, #3c7ccb 50%, #87ceeb 100%);
+    background-size: 200% 200%;
+    width: 100vw;
+    height: 100vh;
+    animation: moveGradient 20s linear infinite;
+    /* ============================================== */
+
+    /* === ВАШ СТИЛЬ: ШРИФТ === */
+    font-family: 'Roboto Mono', monospace; 
+}
+
+/* ВАШЕ КЛЮЧЕВОЕ ПРАВИЛО ДЛЯ АНИМАЦИИ */
+@keyframes moveGradient {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+/* Стили для заголовка h1 (дополнительно) */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Контейнер для таймера (используем ваш класс .contimer) */
+.contimer {
+    position: relative;
+    z-index: 5;
+    padding-top: 10vh;
+}
+
+/* Стили для самого отсчета времени */
+#timer {
+    font-size: 4rem;
+    font-weight: bold;
+    text-shadow: 0 0 15px #ffcc00; 
+}
+
+/* Класс для скрытия элементов */
+.hidden {
+    display: none !important;
+}
+
+/* --- СТИЛИ ДЛЯ YOUTUBE-ПЛЕЕРА (Скрыт) --- */
+#music-player-container {
+    position: fixed;
+    top: -9999px; 
+    left: -9999px; 
+    width: 1px; 
+    height: 1px;
+    overflow: hidden;
+    z-index: 1; 
+}
+
+/* Стили для кнопки управления музыкой */
+#music-toggle-btn {
+    margin-top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffcc00;
+    color: #0d1a29;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.7);
+    transition: background-color 0.2s;
+}
+
+#music-toggle-btn:hover {
+    background-color: #ffe066;
+}
+
+/* --- СТИЛИ ДЛЯ ВЫБОРА РЕЖИМА И МУЛЬТИ-ТАЙМЕРА --- */
+
+#mode-selector {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#mode-selector button {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid white;
+    color: white;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+#mode-selector button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Стили для мульти-таймера */
+#multi-timer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+.city-timer {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin: 10px;
+    text-align: center;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.city-timer h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.city-timer .countdown-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* --- АНИМАЦИЯ СНЕГА (CSS-снегопад) --- */
+
+.snow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
+    background-image: radial-gradient(white 1px, transparent 0);
+    background-size: 10px 10px;
+}
+
+.layer1 {
+    animation: snowfall-animation 15s linear infinite;
+    background-size: 15px 15px;
+    background-position: 0 0;
+}
+.layer2 {
+    animation: snowfall-animation 20s linear infinite reverse;
+    background-size: 10px 10px;
+    background-position: 5px 5px;
+}
+.layer3 {
+    animation: snowfall-animation 25s linear infinite;
+    background-size: 8px 8px;
+    background-position: 2px 2px;
+}
+
+@keyframes snowfall-animation {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+/* --- КОНФЕТТИ АНИМАЦИЯ (для красивого режима) --- */
+
+#confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    pointer-events: none; 
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    opacity: 0; 
+    border-radius: 50%;
+    transform-origin: 50% 50%;
+    animation: confetti-fall 3s ease-out forwards;
+}
+
+.confetti:nth-child(3n) { background-color: #ff007f; }
+.confetti:nth-child(3n + 1) { background-color: #ffd700; }
+.confetti:nth-child(3n + 2) { background-color: #00ffff; }
+
+.confetti:nth-child(4n) { width: 8px; height: 8px; }
+.confetti:nth-child(5n) { border-radius: 0; }
+
+
+@keyframes confetti-fall {
+    0% {
+        opacity: 1; 
+        transform: translate(var(--x-start), var(--y-start)) rotateZ(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--x-end), 100vh) rotateZ(720deg); 
+    }
+}
+
