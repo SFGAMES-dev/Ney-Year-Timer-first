@@ -47,11 +47,12 @@ h1 {
 /* --- СТИЛИ ДЛЯ YOUTUBE-ПЛЕЕРА --- */
 #music-player-container {
     position: fixed;
+    bottom: 5px;
+    left: 5px;
     width: 200px; 
     height: 112px;
-    overflow: hidden;
     z-index: 100; 
-    box-shadow: 0 4px rgba(0, 0, 0, 0.4)
+    box-shadow: 0 4px rgba(0, 0, 0, 0.4);
 }
 #music-player-container iframe{
     width: 100%;
@@ -213,5 +214,6 @@ h1 {
         transform: translate(var(--x-end), 100vh) rotateZ(720deg); 
     }
 }
+
 
 
