@@ -2,54 +2,49 @@
 body {
     margin: 0;
     padding: 0;
-    color: white;
+    color: white; /* Цвет текста */
     text-align: center;
     overflow: hidden; 
+    
+    /* Ваш шрифт */
+    font-family: 'Roboto Mono', monospace; 
 
-    /* === ВАШИ СТИЛИ: ГРАДИЕНТНЫЙ ФОН И АНИМАЦИЯ === */
+    /* ВАШ ГРАДИЕНТНЫЙ ФОН */
     background: linear-gradient(-45deg, #87ceeb 0%, #3c7ccb 50%, #87ceeb 100%);
     background-size: 200% 200%;
     width: 100vw;
     height: 100vh;
     animation: moveGradient 20s linear infinite;
-    /* ============================================== */
-
-    /* === ВАШ СТИЛЬ: ШРИФТ === */
-    font-family: 'Roboto Mono', monospace; 
 }
 
-/* ВАШЕ КЛЮЧЕВОЕ ПРАВИЛО ДЛЯ АНИМАЦИИ */
 @keyframes moveGradient {
     0% { background-position: 0% 0%; }
     100% { background-position: 100% 100%; }
 }
 
-/* Стили для заголовка h1 (дополнительно) */
 h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
 }
 
-/* Контейнер для таймера (используем ваш класс .contimer) */
+/* Контейнер для таймера */
 .contimer {
     position: relative;
     z-index: 5;
     padding-top: 10vh;
 }
 
-/* Стили для самого отсчета времени */
 #timer {
     font-size: 4rem;
     font-weight: bold;
     text-shadow: 0 0 15px #ffcc00; 
 }
 
-/* Класс для скрытия элементов */
 .hidden {
     display: none !important;
 }
 
-/* --- СТИЛИ ДЛЯ YOUTUBE-ПЛЕЕРА (Скрыт) --- */
+/* --- СТИЛИ ДЛЯ YOUTUBE-ПЛЕЕРА --- */
 #music-player-container {
     position: fixed;
     top: -9999px; 
@@ -60,7 +55,6 @@ h1 {
     z-index: 1; 
 }
 
-/* Стили для кнопки управления музыкой */
 #music-toggle-btn {
     margin-top: 10px;
     font-size: 24px;
@@ -142,32 +136,42 @@ h1 {
     height: 100%;
     pointer-events: none;
     z-index: 3;
-    background-image: radial-gradient(white 1px, transparent 0);
-    background-size: 10px 10px;
+    
+    /* ИСПРАВЛЕНИЕ СЕТКИ: РЕДКИЕ, ПОЛУПРОЗРАЧНЫЕ ТОЧКИ */
+    /* Используем rgba(255, 255, 255, 0.7) - белый, 70% прозрачности */
+    background-image: radial-gradient(rgba(255, 255, 255, 0.7) 0.5px, transparent 0); 
+    background-size: 35px 35px; /* Увеличено расстояние между точками */
 }
 
+/* === КЛЮЧЕВОЙ ФРЕЙМ ДЛЯ АНИМАЦИИ ПАДЕНИЯ === */
+@keyframes snowfall-animation {
+    0% { 
+        background-position: 0 0; 
+    }
+    100% { 
+        /* Фон смещается на 100% по X и на 100vh по Y (вертикальное падение) */
+        background-position: 100% 100vh; 
+    }
+}
+/* ===================================== */
+
 .layer1 {
-    animation: snowfall-animation 15s linear infinite;
-    background-size: 15px 15px;
+    animation: snowfall-animation 15s linear infinite; /* Быстро, крупный снег */
+    background-size: 35px 35px;
     background-position: 0 0;
 }
 .layer2 {
-    animation: snowfall-animation 20s linear infinite reverse;
-    background-size: 10px 10px;
-    background-position: 5px 5px;
+    animation: snowfall-animation 20s linear infinite reverse; /* Средняя скорость, средний снег */
+    background-size: 25px 25px;
+    background-position: 10px 10px; 
 }
 .layer3 {
-    animation: snowfall-animation 25s linear infinite;
-    background-size: 8px 8px;
-    background-position: 2px 2px;
+    animation: snowfall-animation 30s linear infinite; /* Медленно, мелкий снег */
+    background-size: 15px 15px;
+    background-position: 5px 5px;
 }
 
-@keyframes snowfall-animation {
-    0% { background-position: 0% 0%; }
-    100% { background-position: 100% 100%; }
-}
-
-/* --- КОНФЕТТИ АНИМАЦИЯ (для красивого режима) --- */
+/* --- КОНФЕТТИ АНИМАЦИЯ --- */
 
 #confetti-container {
     position: fixed;
