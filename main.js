@@ -211,7 +211,7 @@ if (musicToggleBtn && youtubeIframe) {
         }
 
         youtubeIframe.contentWindow.postMessage(
-            `{"event":"command","func":${command},"args":""}`, 
+            `{"event":${command},"func":${command},"args":""}`, 
             '*'
         );
         
@@ -233,4 +233,5 @@ const intervalId = setInterval(() => {
         updateGlobalTimers();
     }
 }, 1000);
+
 
