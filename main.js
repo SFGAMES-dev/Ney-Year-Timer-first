@@ -4,7 +4,7 @@
 // =====================================
 
 // !!! ПЕРЕКЛЮЧАТЕЛЬ: Установите 'true', чтобы активировать выбор режима "Ваш часовой пояс / Мировое время" !!!
-let globalModeEnabled = false; 
+let globalModeEnabled = true; 
 
 const PRIMARY_TIMEZONE = "Asia/Yerevan";
 const SPECIAL_ANIMATION_ZONES = ["Asia/Yerevan", "Europe/Moscow"]; 
@@ -233,5 +233,6 @@ const intervalId = setInterval(() => {
         updateGlobalTimers();
     }
 }, 1000);
+
 
 
