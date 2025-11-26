@@ -4,7 +4,7 @@
 // =====================================
 
 // !!! ПЕРЕКЛЮЧАТЕЛЬ: Установите 'true', чтобы активировать выбор режима "Ваш часовой пояс / Мировое время" !!!
-let globalModeEnabled = true; 
+let globalModeEnabled = false; 
 
 const PRIMARY_TIMEZONE = "Asia/Yerevan";
 const SPECIAL_ANIMATION_ZONES = ["Asia/Yerevan", "Europe/Moscow"]; 
@@ -211,13 +211,14 @@ if (musicToggleBtn && youtubeIframe) {
         }
 
         youtubeIframe.contentWindow.postMessage(
-            `{"event":${command},"func":${command},"args":""}`, 
-            '*'
+            {"event":"command", "func": command, "args": []}, 
+            "*"
         );
         
         musicToggleBtn.innerHTML = buttonText;
     });
 }
+
 
 
 // ------------------------------------
@@ -233,6 +234,3 @@ const intervalId = setInterval(() => {
         updateGlobalTimers();
     }
 }, 1000);
-
-
-
